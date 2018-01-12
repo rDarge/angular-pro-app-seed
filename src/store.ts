@@ -4,11 +4,31 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/operator/pluck';
 import 'rxjs/add/operator/distinctUntilChanged';
 
+import { User } from './auth/shared/services/auth/auth.service'
+import { Meal } from './health/shared/services/meals/meals.service';
+import { Workout } from './health/shared/services/workouts/workouts.service';
+import { ScheduleItem } from './health/shared/services/schedule/schedule.service';
+
 export interface State {
+  user: User,
+  meals: Meal[],
+  workouts: Workout[],
+  date: Date,
+  schedule: ScheduleItem[],
+  selected: any,
+  list: any,
   [key: string]: any
 }
 
-const state: State = {};
+const state: State = {
+  user: undefined,
+  meals: undefined,
+  date: undefined,
+  workouts: undefined,
+  schedule: undefined,
+  list: undefined,
+  selected: undefined
+};
 
 export class Store {
 
